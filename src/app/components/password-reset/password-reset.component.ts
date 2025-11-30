@@ -124,12 +124,12 @@ export class PasswordResetComponent implements OnInit {
 
   goToLogin() {
     // Redirigir a la aplicación principal de login
-    window.location.href = 'https://turisapp-colombia.com/login';
+    window.location.href = 'https://verify-token-rifi-rafi.vercel.app/login';
   }
 
   requestNewToken() {
     // Redirigir a la página de solicitud de restablecimiento de contraseña
-    window.location.href = 'https://turisapp-colombia.com/forgot-password';
+    window.location.href = 'https://verify-token-rifi-rafi.vercel.app/forgot-password';
   }
 
   retryReset() {

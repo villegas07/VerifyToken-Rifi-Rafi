@@ -20,7 +20,7 @@ import {
 export class TokenService {
   private readonly apiUrl = 'https://rifi-rafi.onrender.com/api';
   private readonly messages = {
-    success: '¡Tu cuenta ha sido verificada exitosamente! Ya puedes acceder a todas las funcionalidades de TurisApp Colombia.',
+    success: '¡Tu cuenta ha sido verificada exitosamente! Ya puedes acceder a todas las funcionalidades de RifiRafi_App.',
     tokenNotFound: 'Token no encontrado en la URL',
     tokenInvalid: 'El token de verificación no es válido o ha expirado'
   };
