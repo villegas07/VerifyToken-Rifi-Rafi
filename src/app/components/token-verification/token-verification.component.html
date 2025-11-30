@@ -1,0 +1,93 @@
+<div class="verification-container">
+  
+  <!-- Loading State -->
+  @if (verificationState === 'loading') {
+    <div class="verification-card loading">
+      <div class="icon-container">
+        <fa-icon [icon]="faEnvelope" class="verification-icon"></fa-icon>
+      </div>
+      
+      <h2 class="verification-title">Verificación de Cuenta</h2>
+      <p class="verification-message">Estamos verificando tu token de registro para activar tu cuenta en TurisApp Colombia</p>
+      
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+      </div>
+    </div>
+  }
+
+  <!-- Success State -->
+  @if (verificationState === 'success') {
+    <div class="verification-card success">
+      <div class="icon-container success">
+        <fa-icon [icon]="faCheckCircle" class="verification-icon"></fa-icon>
+      </div>
+      
+      <h2 class="verification-title">¡Verificación Exitosa!</h2>
+      <p class="verification-message success">Tu cuenta ha sido activada correctamente. ¡Bienvenido a TurisApp Colombia!</p>
+      
+      <div class="success-actions">
+        <button class="btn btn-primary" (click)="goToApp()">Volver a la Aplicación</button>
+        <button class="btn btn-secondary" (click)="exploreDestinations()">Explorar Destinos</button>
+      </div>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (verificationState === 'error') {
+    <div class="verification-card error">
+      <div class="icon-container error">
+        <fa-icon [icon]="faExclamationTriangle" class="verification-icon"></fa-icon>
+      </div>
+      
+      <h2 class="verification-title">Token no encontrado en la URL</h2>
+      
+      <div class="error-message">
+        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="next-steps">
+        <div class="next-steps-header">
+          <fa-icon [icon]="faInfoCircle"></fa-icon>
+          <h3>Próximos pasos</h3>
+        </div>
+        
+        <ul class="steps-list">
+          @for (step of nextSteps; track step.text) {
+            <li class="step-item">
+              <fa-icon [icon]="getIcon(step.icon)"></fa-icon>
+              <span>{{ step.text }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="error-actions">
+        <button class="btn btn-primary" (click)="retryVerification()">
+          <fa-icon [icon]="faRedo"></fa-icon>
+          Reintentar
+        </button>
+      </div>
+    </div>
+  }
+
+  <!-- Tourism Options -->
+  <div class="tourism-section">
+    <div class="tourism-grid">
+      @for (option of tourismOptions; track option.title) {
+        <div class="tourism-card" [style.border-left-color]="option.color">
+          <div class="tourism-icon" [style.color]="option.color">
+            <fa-icon [icon]="getIcon(option.icon)"></fa-icon>
+          </div>
+          <div class="tourism-content">
+            <h4>{{ option.title }}</h4>
+            <p>{{ option.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+</div>

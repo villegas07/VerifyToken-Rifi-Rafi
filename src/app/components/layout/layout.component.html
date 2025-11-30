@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="layout-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">
+              <img src="/logo.png" alt="Logo RifiRafi" style="height: 56px; width: 56px; object-fit: contain;" />
+            </div>
+            <div class="logo-text">
+              <h1>Rifi-Rafi</h1>
+              <p>Trivia competitiva por premios reales</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 TurisApp Colombia. Todos los derechos reservados. | <a href="https://www.linkedin.com/in/brayanvillegascorrales-943806260" class="footer-link">Brayan Villegas Corrales</a></p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<div class="recovery-container">
+  <div class="recovery-card">
+    <!-- Header -->
+    <div class="recovery-header">
+      <i class="fas fa-user-lock header-icon"></i>
+      <h1>Recuperar Cuenta</h1>
+      <p class="subtitle">Ingresa tu email o ID de usuario para recuperar tu cuenta</p>
+    </div>
+
+    <!-- Form State -->
+    <div *ngIf="currentState === 'form'" class="recovery-content">
+      <form (ngSubmit)="onSubmit()" class="recovery-form">
+        <div class="form-group">
+          <label for="identifier">Email o ID de Usuario</label>
+          <div class="input-wrapper">
+            <i class="fas fa-envelope input-icon"></i>
+            <input
+              type="text"
+              id="identifier"
+              [(ngModel)]="identifier"
+              name="identifier"
+              (input)="onIdentifierChange()"
+              placeholder="ejemplo@correo.com o user123"
+              class="recovery-input"
+              [class.input-error]="errorMessage"
+              required
+            />
+          </div>
+          <div *ngIf="errorMessage" class="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ errorMessage }}
+          </div>
+        </div>
+
+        <button type="submit" class="recovery-btn">
+          <i class="fas fa-paper-plane"></i>
+          Enviar Solicitud de Recuperación
+        </button>
+      </form>
+
+      <div class="info-box">
+        <i class="fas fa-info-circle"></i>
+        <p>Recibirás un correo electrónico con instrucciones para recuperar tu cuenta.</p>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="currentState === 'loading'" class="loading-state">
+      <div class="spinner"></div>
+      <h2>Procesando solicitud...</h2>
+      <p>Por favor espera mientras enviamos el correo de recuperación</p>
+    </div>
+
+    <!-- Success State -->
+    <div *ngIf="currentState === 'success'" class="success-state">
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2>¡Solicitud Enviada!</h2>
+      <p class="success-message">{{ successMessage }}</p>
+      
+      <div class="success-steps">
+        <div class="step">
+          <i class="fas fa-envelope-open-text"></i>
+          <p>Revisa tu bandeja de entrada</p>
+        </div>
+        <div class="step">
+          <i class="fas fa-mouse-pointer"></i>
+          <p>Haz clic en el enlace del correo</p>
+        </div>
+        <div class="step">
+          <i class="fas fa-key"></i>
+          <p>Sigue las instrucciones para recuperar tu cuenta</p>
+        </div>
+      </div>
+
+      <button (click)="goToLogin()" class="primary-btn">
+        <i class="fas fa-sign-in-alt"></i>
+        Ir a Iniciar Sesión
+      </button>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="currentState === 'error'" class="error-state">
+      <div class="error-icon">
+        <i class="fas fa-times-circle"></i>
+      </div>
+      <h2>Error en la Recuperación</h2>
+      <p class="error-text">{{ errorMessage }}</p>
+      
+      <div class="error-suggestions">
+        <h3>¿Qué puedes hacer?</h3>
+        <ul>
+          <li>
+            <i class="fas fa-check"></i>
+            Verifica que el email o ID de usuario sea correcto
+          </li>
+          <li>
+            <i class="fas fa-check"></i>
+            Revisa tu carpeta de spam
+          </li>
+          <li>
+            <i class="fas fa-check"></i>
+            Intenta nuevamente en unos minutos
+          </li>
+        </ul>
+      </div>
+
+      <button (click)="retry()" class="retry-btn">
+        <i class="fas fa-redo"></i>
+        Intentar Nuevamente
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="demo-container">
+  <div class="demo-header">
+    <h1>🧪 Demo - Estados de Verificación</h1>
+    <p>Prueba los diferentes estados del sistema de verificación de tokens de TurisApp Colombia</p>
+  </div>
+
+  <div class="demo-grid">
+    @for (link of demoLinks; track link.title) {
+      <div class="demo-card" [style.border-left-color]="link.color">
+        <div class="demo-icon" [style.color]="link.color">
+          <i class="fas {{ link.icon }}"></i>
+        </div>
+        
+        <div class="demo-content">
+          <h3>{{ link.title }}</h3>
+          <p>{{ link.description }}</p>
+          
+          <div class="demo-actions">
+            <a [href]="link.url" class="demo-button">
+              <i class="fas fa-external-link-alt"></i>
+              Probar Estado
+            </a>
+            
+            <code class="demo-url">{{ link.url }}</code>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="demo-info">
+    <div class="info-card">
+      <h3>ℹ️ Información de la Demo</h3>
+      <ul>
+        <li><strong>API:</strong> https://app-turismo.onrender.com/api/auth/verify-email</li>
+        <li><strong>Método:</strong> POST con {{ '{' }}"token": "string"{{ '}' }}</li>
+        <li><strong>Respuestas:</strong> 200 (exitoso), 400/404/410 (errores)</li>
+        <li><strong>Estados:</strong> Loading → Success/Error según API</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <h3>🎯 Características Implementadas</h3>
+      <ul>
+        <li>✅ Extracción automática de tokens desde URL</li>
+        <li>✅ Estados dinámicos con feedback visual</li>
+        <li>✅ Mensajes de error específicos</li>
+        <li>✅ Próximos pasos para resolución</li>
+        <li>✅ Diseño responsive y accesible</li>
+        <li>✅ Branding corporativo de TurisApp</li>
+      </ul>
+    </div>
+  </div>
+</div>
