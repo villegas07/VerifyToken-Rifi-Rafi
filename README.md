@@ -1,6 +1,6 @@
 # TurisApp Colombia - Token Verification System
 
-Sistema de verificación de tokens para TurisApp Colombia que maneja tanto la verificación de usuarios como el restablecimiento de contraseñas.
+Sistema de verificación de tokens para Rifi-Rafi App que maneja tanto la verificación de usuarios como el restablecimiento de contraseñas.
 
 ## Características
 
